@@ -4,5 +4,4 @@ python:
 script:
 - pytest
 install:
-- pip install --upgrade pyspark
 - pip install pytest pytest-runner
