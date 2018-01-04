@@ -1,9 +1,5 @@
 # LA-template
 
-Template repository for lab assignments.
-
-##
-
 This repository is private in order to (1) encourage you to experiment
 various solutions without the fear of making mistakes publicly (2)
 discourage plagiarism, unauthorized collaboration and other offences
@@ -20,6 +16,8 @@ To prepare and submit your assignment, you will:
 4. Clone your fork and implement the assignment.
 5. Push your solution to your fork.
 6. Release your fork on GitHub
+
+Your code will be tested with Python 3.6.
 
 ## Grading
 
