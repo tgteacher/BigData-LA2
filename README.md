@@ -17,7 +17,14 @@ To prepare and submit your assignment, you will:
 5. Push your solution to your fork.
 6. Release your fork on GitHub
 
-Your code will be tested with Python 3.6.
+Your code will be tested with Python 3.5.
+
+Important note: you are not supposed to make a pull request from your
+fork to the TA's one. Doing so will result in your code being made
+publicly available among the other students, which will also be
+considered [unauthorized
+collaboration](http://www.concordia.ca/students/academic-integrity/offences.html)
+under Concordia's Academic Code of Conduct.
 
 ## Specific instructions
 
