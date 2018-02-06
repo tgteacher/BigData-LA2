@@ -22,8 +22,10 @@ through ALS collaborative filtering, similarly to the example at
 http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 The training ratio must be 80% and the test ratio must be 20%. The
 random seed used to sample the training and test set (passed to
-`DataFrame.randomSplit`) must be an argument of the script. The
-following parameters must be used in the ALS optimizer:
+`DataFrame.randomSplit`) must be an argument of the script. The seed
+must also be used to initialize the ALS optimizer (use
+*ALS.setSeed()*). The following parameters must be used in the ALS
+optimizer:
 - maxIter: 5
 - rank: 70
 - regParam: 0.01
@@ -121,7 +123,9 @@ Write a script that prints the RMSE of recommendations obtained by
 predicting the user-item interaction *i* using ALS. Your ALS model
 should make predictions for *i* and the RMSE should be computed on the
 final ratings, computed as i+user_mean+item_mean-m. Training and test
-sets should be determined as before.
+sets should be determined as before. Your ALS model should use the
+same parameters as before and be initialized with the random seed
+passed on the command line.
 
 #### Required syntax
 

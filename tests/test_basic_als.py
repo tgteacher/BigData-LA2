@@ -7,4 +7,4 @@ def test_basic_als():
                                stderr=subprocess.PIPE)
     code=process.wait()
     assert(not code), "Command failed"
-    assert(abs(float(process.stdout.read().decode("utf-8"))-1.60)<0.03)
+    assert(abs(float(process.stdout.read().decode("utf-8"))-1.56)<0.03)
