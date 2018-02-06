@@ -5,7 +5,7 @@
 ### Preliminaries
 
 With this assignment you will get a practical hands-on of recommender
-systems in Spark. To start with, make sure you understand the example
+systems in Spark. To begin, make sure you understand the example
 at http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 and that you can run it successfully. 
 
