@@ -7,4 +7,4 @@ def test_als_with_bias_recommender():
                                stderr=subprocess.PIPE)
     code=process.wait()
     assert(not code), "Command failed"
-    assert(process.stdout.read().decode("utf-8")=="1.05448692337"+os.linesep)
+    assert(abs(float(process.stdout.read().decode("utf-8"))-1.0409172341247102)<0.03)
