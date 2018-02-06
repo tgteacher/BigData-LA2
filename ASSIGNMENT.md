@@ -1,12 +1,13 @@
 # Assignment instructions
 
-Specific instructions go here.
-
-## Recommender systems: more insight on MovieLens and ALS
+## 1. Recommender systems
 
 ### Preliminaries
 
-Check the example at http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
+With this assignment you will get a practical hands-on of recommender
+systems in Spark. To start with, make sure you understand the example
+at http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
+and that you can run it successfully. 
 
 ### Dataset
 
@@ -134,10 +135,10 @@ sets should be determined as before.
 *Note:* compare the RMSE obtained here with the one obtained with the
  basic ALS model. 
 
-## Clustering
+## 2. Clustering
 
 TBA
 
-## Frequent itemsets
+## 3. Frequent itemsets
 
 TBA
