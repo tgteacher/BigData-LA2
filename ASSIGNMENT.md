@@ -1,12 +1,29 @@
 # Assignment instructions
 
-Specific instructions go here.
-
-## Recommender systems: more insight on MovieLens and ALS
+## 1. Recommender systems
 
 ### Preliminaries
 
-Check the example at http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
+With this assignment you will get a practical hands-on of recommender
+systems in Spark. To begin, make sure you understand the example
+at http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
+and that you can run it successfully. 
+
+Important preliminary notes:
+
+* The requested tasks, described below, are all evaluated with a test
+  run with [pytest](http://pytest.org). Your assignment will be graded
+  directly from the result of those tests, see details
+  [here](./README.md). You may want to get familiar with pytest before
+  you start.
+  
+* The tests contain examples of expected outputs that you may want to
+  check in case the instruction below are unclear. Every detail in
+  your answer counts! In particular, you should pay attention to the
+  exact syntax of the expected output: add quotes around your answer
+  and the tests won't pass!
+
+* Your answers to the tasks below *must* be located in directory `answers`. 
 
 ### Dataset
 
@@ -21,7 +38,7 @@ Write a script that prints the RMSE of recommendations obtained
 through ALS collaborative filtering, similarly to the example at
 http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 The training ratio must be 80% and the test ratio must be 20%. The
-random seed used to sample the training and test set (passed to
+random seed used to sample the training and test sets (passed to
 `DataFrame.randomSplit`) must be an argument of the script. The seed
 must also be used to initialize the ALS optimizer (use
 *ALS.setSeed()*). The following parameters must be used in the ALS
@@ -76,7 +93,7 @@ sets should be determined as before. You can add a column to an existing DataFra
 
 *Note:* compare the RMSEs obtained using the global-average
  recommender and the ALS one. Our basic ALS recommender does not
- perform quite well compared to the naive global-average
+ perform well compared to the naive global-average
  approach. Although ALS parameters might be optimized (for instance,
  try increasing the number of max iterations or tuning the
  regularization parameter), this is fundamentally due to the fact that
@@ -84,7 +101,7 @@ sets should be determined as before. You can add a column to an existing DataFra
  the remainder we will improve the basic ALS method by taking user and
  item biases into account.
 
-### User mean, item mean and user-item interaction.
+### User mean, item mean and user-item interaction
 
 #### Task
 
@@ -138,10 +155,10 @@ passed on the command line.
 *Note:* compare the RMSE obtained here with the one obtained with the
  basic ALS model. 
 
-## Clustering
+## 2. Clustering
 
 TBA
 
-## Frequent itemsets
+## 3. Frequent itemsets
 
 TBA
