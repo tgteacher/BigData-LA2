@@ -9,6 +9,22 @@ systems in Spark. To begin, make sure you understand the example
 at http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 and that you can run it successfully. 
 
+Important preliminary notes:
+
+* The requested tasks, described below, are all evaluated with a test
+  run with [pytest](http://pytest.org). Your assignment will be graded
+  directly from the result of those tests, see details
+  [here](./README.md). You may want to get familiar with pytest before
+  you start.
+  
+* The tests contain examples of expected outputs that you may want to
+  check in case the instruction below are unclear. Every detail in
+  your answer counts! In particular, you should pay attention to the
+  exact syntax of the expected output: add quotes around your answer
+  and the tests won't pass!
+
+* Your answers to the tasks below *must* be located in directory `answers`. 
+
 ### Dataset
 
 We will use the MovieLens dataset sample provided with Spark and
@@ -22,7 +38,7 @@ Write a script that prints the RMSE of recommendations obtained
 through ALS collaborative filtering, similarly to the example at
 http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 The training ratio must be 80% and the test ratio must be 20%. The
-random seed used to sample the training and test set (passed to
+random seed used to sample the training and test sets (passed to
 `DataFrame.randomSplit`) must be an argument of the script. The
 following parameters must be used in the ALS optimizer:
 - maxIter: 5
