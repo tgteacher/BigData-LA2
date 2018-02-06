@@ -91,7 +91,7 @@ sets should be determined as before. You can add a column to an existing DataFra
 
 *Note:* compare the RMSEs obtained using the global-average
  recommender and the ALS one. Our basic ALS recommender does not
- perform quite well compared to the naive global-average
+ perform well compared to the naive global-average
  approach. Although ALS parameters might be optimized (for instance,
  try increasing the number of max iterations or tuning the
  regularization parameter), this is fundamentally due to the fact that
@@ -99,7 +99,7 @@ sets should be determined as before. You can add a column to an existing DataFra
  the remainder we will improve the basic ALS method by taking user and
  item biases into account.
 
-### User mean, item mean and user-item interaction.
+### User mean, item mean and user-item interaction
 
 #### Task
 
