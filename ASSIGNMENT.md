@@ -139,7 +139,7 @@ sets should be determined as before.
 Write a script that prints the RMSE of recommendations obtained by
 predicting the user-item interaction *i* using ALS. Your ALS model
 should make predictions for *i* and the RMSE should be computed on the
-final ratings, computed as i+user_mean+item_mean-m. Training and test
+final ratings, computed as i+user_mean+item_mean-m (m is the global rating). Training and test
 sets should be determined as before. Your ALS model should use the
 same parameters as before and be initialized with the random seed
 passed on the command line.
