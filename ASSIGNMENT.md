@@ -119,6 +119,8 @@ the command line. The DataFrame must contain the following columns:
 - item-mean # computed on the training set 
 - user-item-interaction # i = rating - (user_mean+item_mean-global_mean)
 
+Rows must be ordered by ascending userId and then by ascending movieId.
+
  Training and test
 sets should be determined as before.
 
