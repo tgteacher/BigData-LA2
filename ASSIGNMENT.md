@@ -155,10 +155,3 @@ passed on the command line.
 *Note:* compare the RMSE obtained here with the one obtained with the
  basic ALS model. 
 
-## 2. Clustering
-
-TBA
-
-## 3. Frequent itemsets
-
-TBA
