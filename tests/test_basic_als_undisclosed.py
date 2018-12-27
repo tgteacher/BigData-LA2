@@ -1,10 +1,7 @@
-import subprocess, os
+import sys
+sys.path.insert(0, './answers')
+from answer import basic_als_recommender
 
 def test_basic_als_undisclosed():
-    command="python ./answers/basic_als_recommender.py 1234"
-    process = subprocess.Popen(command, shell=True,
-                               stdout=subprocess.PIPE,
-                               stderr=subprocess.PIPE)
-    code=process.wait()
-    assert(not code), "Command failed"
-    assert(abs(float(process.stdout.read().decode("utf-8"))-1.6)<0.05)
+    a = basic_als_recommender("./data/sample_movielens_ratings.txt", 1234)
+    assert(abs(a-1.6)<0.05)

@@ -1,10 +1,7 @@
-import subprocess
+import sys
+sys.path.insert(0, './answers')
+from answer import means_and_interaction
 
 def test_means_and_interaction():
-    command="python ./answers/means_and_interaction.py 123 17"
-    process = subprocess.Popen(command, shell=True,
-                               stdout=subprocess.PIPE,
-                               stderr=subprocess.PIPE)
-    code=process.wait()
-    assert(not code), "Command failed"
-    assert(process.stdout.read().decode("utf-8")==open("tests/means_and_interaction.txt","r").read())
+    a = means_and_interaction("./data/sample_movielens_ratings.txt", 123, 17)
+    assert(a==open("tests/means_and_interaction.txt","r").read())
