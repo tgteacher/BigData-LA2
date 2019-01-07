@@ -23,7 +23,10 @@ Important preliminary notes:
   exact syntax of the expected output: add quotes around your answer
   and the tests won't pass!
 
-* Your answers to the tasks below *must* be located in directory `answers`. 
+* Your answers to the tasks below *must* be located in file `answers/answer.py`. 
+
+* A skeleton of your answer file already exists in file `answers/answer.py`
+  with the required syntax for each function.
 
 ### Dataset
 
@@ -48,11 +51,6 @@ optimizer:
 - regParam: 0.01
 - coldStartStrategy: 'drop'
 
-
-#### Required syntax
-
-`basic_als_recommender.py <seed>`
-
 #### Test
 
 `tests/test_basic_als.py`
@@ -64,10 +62,6 @@ optimizer:
 Write a script that prints the global average rating for all users and
 all movies in the training set. Training and test
 sets should be determined as before.
-
-#### Required syntax
-
-`global_average.py`
 
 #### Test
 
@@ -82,10 +76,6 @@ through global average, that is, the predicted rating for each
 user-movie pair must be the global average computed in the previous
 task. Training and test
 sets should be determined as before. You can add a column to an existing DataFrame with function *.withColumn(...)*.
-
-#### Required syntax
-
-`global_average_recommender.py <seed>`
 
 #### Test
 
@@ -115,18 +105,13 @@ the command line. The DataFrame must contain the following columns:
 - userId # as in the input file
 - movieId #  as in the input file
 - rating # as in the input file
-- user-mean # computed on the training set
-- item-mean # computed on the training set 
-- user-item-interaction # i = rating - (user_mean+item_mean-global_mean)
+- user_mean # computed on the training set
+- item_mean # computed on the training set 
+- user_item_interaction # i = rating - (user_mean+item_mean-global_mean)
 
 Rows must be ordered by ascending userId and then by ascending movieId.
 
- Training and test
-sets should be determined as before.
-
-#### Required syntax
-
-`means_and_interaction.py <seed> <n>`
+Training and test sets should be determined as before.
 
 #### Test
 
@@ -144,8 +129,7 @@ for *i*, then you should recompute the predicted rating with the formula
 *i+user_mean+item_mean-m* (*m* is the global rating) The RMSE should compare
 the original rating column and the predicted rating column.  Training and test
 sets should be determined as before. Your ALS model should use the same
-parameters as before and be initialized with the random seed passed on the
-command line.
+parameters as before and be initialized with the random seed passed as parameter.
 
 #### Required syntax
 
