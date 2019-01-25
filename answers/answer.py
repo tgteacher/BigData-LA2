@@ -9,17 +9,49 @@ from pyspark.sql.functions import desc
 from pyspark.ml.evaluation import RegressionEvaluator
 from pyspark.ml.recommendation import ALS
 
-spark = SparkSession \
-    .builder \
-    .appName("Python Spark SQL basic example") \
-    .config("spark.some.config.option", "some-value") \
-    .getOrCreate()
 
+'''
+INTRODUCTION
+
+With this assignment you will get a practical hands-on of recommender
+systems in Spark. To begin, make sure you understand the example
+at http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
+and that you can run it successfully. 
+
+We will use the MovieLens dataset sample provided with Spark and
+available in directory `data`.
+
+'''
+
+'''
+HELPER FUNCTIONS
+
+These functions are here to help you. Instructions will tell you when
+you should use them. Don't modify them!
+'''
+
+#Initialize a spark session.
+def init_spark():
+    spark = SparkSession \
+        .builder \
+        .appName("Python Spark SQL basic example") \
+        .config("spark.some.config.option", "some-value") \
+        .getOrCreate()
+    return spark
+
+#Useful functions to print RDDs and Dataframes.
 def toCSVLineRDD(rdd):
+    '''
+    This function convert an RDD or a DataFrame into a CSV string
+    '''
     a = rdd.map(lambda row: ",".join([str(elt) for elt in row]))\
-           .reduce(lambda x,y: "\n".join([x,y]))
-    return a + "\n"
+           .reduce(lambda x,y: os.linesep.join([x,y]))
+    return a + os.linesep
+
 def toCSVLine(data):
+    '''
+    Convert an RDD or a DataFrame into a CSV string
+    '''
     if isinstance(data, RDD):
         return toCSVLineRDD(data)
     elif isinstance(data, DataFrame):
@@ -28,12 +60,12 @@ def toCSVLine(data):
 
 def basic_als_recommender(filename, seed):
     '''
-    Write a code that prints the RMSE of recommendations obtained
+    This function must print the RMSE of recommendations obtained
     through ALS collaborative filtering, similarly to the example at
     http://spark.apache.org/docs/latest/ml-collaborative-filtering.html
     The training ratio must be 80% and the test ratio must be 20%. The
     random seed used to sample the training and test sets (passed to
-    `DataFrame.randomSplit`) must be an argument of the script. The seed
+    ''DataFrame.randomSplit') is an argument of the function. The seed
     must also be used to initialize the ALS optimizer (use
     *ALS.setSeed()*). The following parameters must be used in the ALS
     optimizer:
@@ -47,7 +79,7 @@ def basic_als_recommender(filename, seed):
 
 def global_average(filename, seed):
     '''
-    Write a code that prints the global average rating for all users and
+    This function must print the global average rating for all users and
     all movies in the training set. Training and test
     sets should be determined as before (e.g: as in function basic_als_recommender).
     Test file: tests/test_global_average.py
@@ -56,7 +88,7 @@ def global_average(filename, seed):
 
 def global_average_recommender(filename, seed):
     '''
-    Write a code that prints the RMSE of recommendations obtained
+    This function must print the RMSE of recommendations obtained
     through global average, that is, the predicted rating for each
     user-movie pair must be the global average computed in the previous
     task. Training and test
@@ -67,7 +99,7 @@ def global_average_recommender(filename, seed):
 
 def means_and_interaction(filename, seed, n):
     '''
-    Write a code that prints the *n* first elements of a DataFrame
+    This function must return the *n* first elements of a DataFrame
     containing, for each (userId, movieId, rating) triple, the
     corresponding user mean (computed on the training set), item mean
     (computed on the training set) and user-item interaction *i* defined
@@ -93,13 +125,14 @@ def means_and_interaction(filename, seed, n):
 
 def als_with_bias_recommender(filename, seed):
     '''
-    Write a code that prints the RMSE of recommendations obtained by predicting
-    the user-item interaction *i* using ALS. Your ALS model should make predictions
-    for *i*, then you should recompute the predicted rating with the formula
-    *i+user_mean+item_mean-m* (*m* is the global rating) The RMSE should compare
-    the original rating column and the predicted rating column.  Training and test
-    sets should be determined as before. Your ALS model should use the same
-    parameters as before and be initialized with the random seed passed as parameter.
-    Test file: tests/test_als_with_bias_recommender.py
+    This function must return the RMSE of recommendations obtained 
+    using ALS + biases. Your ALS model should make predictions for *i*, 
+    the user-item interaction, then you should recompute the predicted 
+    rating with the formula *i+user_mean+item_mean-m* (*m* is the 
+    global rating). The RMSE should compare the original rating column 
+    and the predicted rating column.  Training and test sets should be 
+    determined as before. Your ALS model should use the same parameters 
+    as before and be initialized with the random seed passed as 
+    parameter. Test file: tests/test_als_with_bias_recommender.py
     '''
     return 0
