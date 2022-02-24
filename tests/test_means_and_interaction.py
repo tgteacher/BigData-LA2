@@ -1,5 +1,6 @@
 import sys
-sys.path.insert(0, './answers')
+import os
+sys.path.insert(0, os.path.join('.', 'answers'))
 from answer import means_and_interaction
 from pyspark.sql import Row
 
@@ -38,7 +39,7 @@ def test_means_and_interaction():
      Row(userId=0, movieId=41, rating=2.0, user_mean=1.5142857142857142, item_mean=1.8888888888888888, user_item_interaction=0.37432329774899054),\
      Row(userId=0, movieId=44, rating=1.0, user_mean=1.5142857142857142, item_mean=1.2, user_item_interaction=0.0632121866378792),\
      Row(userId=0, movieId=45, rating=2.0, user_mean=1.5142857142857142, item_mean=1.3333333333333333, user_item_interaction=0.9298788533045463)]
-    a = means_and_interaction("./data/sample_movielens_ratings.txt", 123, 17)
+    a = means_and_interaction(os.path.join('.', 'data', 'sample_movielens_ratings.txt'), 123, 17)
     try:
         assert(len(a) == len(res))
         for i in range(len(res)):
