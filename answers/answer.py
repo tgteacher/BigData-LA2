@@ -45,8 +45,8 @@ def toCSVLineRDD(rdd):
     This function convert an RDD or a DataFrame into a CSV string
     '''
     a = rdd.map(lambda row: ",".join([str(elt) for elt in row]))\
-           .reduce(lambda x,y: os.linesep.join([x,y]))
-    return a + os.linesep
+           .reduce(lambda x,y: '\n'.join([x,y]))
+    return a + '\n'
 
 def toCSVLine(data):
     '''
